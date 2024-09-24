@@ -203,7 +203,7 @@ function createHeader ()
 
 		else
 		{
-			viewSelector.setAttribute( "value", views[i].tagName );
+			viewSelector.setAttribute( "value", views[i].tagName.toLowerCase() );
 		}
 
 		viewSelector.addEventListener( "click", showView );
