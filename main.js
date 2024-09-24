@@ -261,7 +261,7 @@ function showViewByElement ( element )
 
 	for ( let i=0; i < viewSelectors.length; i++ )
 	{
-		if ( viewSelectors[i].getAttribute("value") == element.tagName || viewSelectors[i].getAttribute("value") == element.getAttribute( "id" ) )
+		if ( viewSelectors[i].getAttribute("value") == element.tagName.toLowerCase() || viewSelectors[i].getAttribute("value") == element.getAttribute( "id" ) )
 		{
 			viewSelectors[i].style.backgroundColor = "#ffcd5b";
 		}
