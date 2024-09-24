@@ -1,3 +1,5 @@
+const htmlHead = document.querySelector("head");
+
 const htmlBody = document.querySelector("body");
 
 const htmlMain = document.querySelector("main");
@@ -284,6 +286,8 @@ function scrollToHeading ( event )
 
 	return;
 }
+
+
 
 showViewByElement( htmlMain );
 
