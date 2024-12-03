@@ -222,6 +222,13 @@ h1, h2, h3, h4, h5, h6
 }
 
 
+section
+{
+	margin-top: 3rem;
+	margin-bottom: 1.5rem;
+}
+
+
 /* Margin top and bottom for almost anything */
 p, li, figcaption, img, figure, div, code, mark, ul
 {
