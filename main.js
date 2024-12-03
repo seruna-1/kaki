@@ -287,7 +287,52 @@ function scrollToHeading ( event )
 	return;
 }
 
+function generateSelfAnchors ()
+{
+	const selfAnchors = document.querySelectorAll( "a" );
 
+	console.log( selfAnchors.length );
+
+	let i = 0;
+
+	while ( ( i < selfAnchors.length ) && !( selfAnchors[i].hasAttribute( "href" ) ) )
+	{
+		let buffer = selfAnchors[i].textContent.toLowerCase();
+
+		buffer = buffer.replace( " ", "-" );
+
+		buffer = buffer.replace( "_", "-" );
+
+		let start = 0;
+
+		let end = buffer.length;
+
+		console.log( "File: " + buffer );
+
+		while ( ( start < end ) && ( buffer.at( start ) == "-" ) )
+		{
+			start++;
+		}
+
+		while ( ( end > start ) && ( buffer.at( end ) == "-" ) )
+		{
+			end--;
+		}
+
+		console.log( "Start: " + start + " , end: " + end );
+
+		buffer = buffer.slice( start, end + 1 ) + "/index.html";
+
+		console.log( buffer );
+
+		selfAnchors[i].setAttribute( "href", buffer );
+
+		i++;
+	}
+
+	return;
+}
+
+generateSelfAnchors();
 
 showViewByElement( htmlMain );
-
