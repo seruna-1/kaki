@@ -66,12 +66,12 @@ header
 	text-align: center;
 }
 
-main, header, nav
+main, header, body > nav
 {
-	padding-right: calc( var(--empty-space-width) / 2 );
-	padding-left: calc( var(--empty-space-width) / 2 );
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-right: calc( var(--empty-space-width) / 2 + 1rem );
+	padding-left: calc( var(--empty-space-width) / 2 + 1rem );
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 
 ul
@@ -103,6 +103,14 @@ div
 	overflow-x: auto;
 	overflow-y: hidden;
 	text-wrap: nowrap;
+}
+
+div div
+{
+	border-style: unset;
+	border-left-style: solid;
+	border-left-width: var(--border-width);
+	border-left-color: var(--color-border);
 }
 
 div:not( .line-break ) *
@@ -149,6 +157,11 @@ a:hover
 	color: var(--color-clickable-selected);
 }
 
+div:not(:has(div:hover)):hover
+{
+	background-color: var(--color-background-2);
+}
+
 button:enabled:hover, input[type="submit"]:enabled:hover, input[type="reset"]:enabled:hover, input[type="button"]:enabled:hover
 {
 	background-color: var(--color-clickable-selected);
@@ -175,6 +188,7 @@ h1, h2, h3, h4, h5, h6
 {
 	font-size: 1.4rem;
 	font-weight: bold;
+	margin: 0;
 }
 
 section:not( :first-child )
@@ -198,6 +212,11 @@ ul:not( :last-child )
 p:last-child
 {
 	margin-bottom: 0;
+}
+
+:first-child
+{
+	margin-top: 0;
 }
 
 input[type="submit"], input[type="reset"], input[type="button"]
