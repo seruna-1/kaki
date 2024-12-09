@@ -5,14 +5,12 @@
 		url("fonts/Iosevka-Fixed/IosevkaFixed-Regular.woff2") format("woff2");
 }
 
-
 @font-face
 {
 	font-family: "Julia Mono";
 	src:
 		url("fonts/JuliaMono/JuliaMono-Regular.woff2") format("woff2");
 }
-
 
 :root, ::backdrop
 {
@@ -41,45 +39,6 @@
 	--color-clickable-selected: #ffcd5b;
 
 	--color-border: #54545494;
-}
-
-
-img, video
-{
-	opacity: 0.8;
-	display: block;
-}
-
-mark, code, kbd, blockquote > *
-{
-	color: var(--color-text-marked);
-	background-color: unset;
-}
-
-figcaption
-{
-	color: var(--color-text-shadowed);
-}
-
-a
-{
-	color: var(--color-clickable-normal);
-	text-decoration: none;
-}
-
-a:hover
-{
-	color: var(--color-clickable-selected);
-}
-
-button:enabled:hover, input[type="submit"]:enabled:hover, input[type="reset"]:enabled:hover, input[type="button"]:enabled:hover
-{
-	background-color: var(--color-clickable-selected);
-}
-
-hr
-{
-	color: var(--color-border);
 }
 
 html
@@ -128,7 +87,6 @@ figure, div
 	padding: 1rem;
 	margin-right: 1rem;
 	margin-left: 1rem;
-	margin-top: 1rem;
 	height: auto;
 	border-style: solid;
 	border-width: var(--border-width);
@@ -147,24 +105,76 @@ div
 	text-wrap: nowrap;
 }
 
+div:not( .line-break ) *
+{
+	width: fit-content;
+}
+
+div.line-break
+{
+	text-wrap: auto;
+}
+
 body, main, figure, div
 {
 	box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p
+img, video
 {
+	width: 100%;
+	opacity: 0.8;
+	display: block;
+}
+
+mark, code, kbd, blockquote > *
+{
+	color: var(--color-text-marked);
+	background-color: unset;
+}
+
+figcaption
+{
+	color: var(--color-text-shadowed);
+}
+
+a
+{
+	color: var(--color-clickable-normal);
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: var(--color-clickable-selected);
+}
+
+button:enabled:hover, input[type="submit"]:enabled:hover, input[type="reset"]:enabled:hover, input[type="button"]:enabled:hover
+{
+	background-color: var(--color-clickable-selected);
+}
+
+hr
+{
+	color: var(--color-border);
+}
+
+h1, h2, h3, h4, h5, h6, p:not( div > p )
+{
+	overflow-x: auto;
 	line-height: 1.4em;
 	margin-top: 0;
+}
+
+div.line-break > p
+{
+	overflow-x: auto;
 }
 
 h1, h2, h3, h4, h5, h6
 {
 	font-size: 1.4rem;
 	font-weight: bold;
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-	word-break: break-word;
 }
 
 section:not( :first-child )
@@ -172,7 +182,7 @@ section:not( :first-child )
 	margin-top: 3rem;
 }
 
-h1:has( + * ) , h2:has( + * ), section
+section > h1, section > h2, section > h3, section > h4, section > h5, section > h6
 {
 	margin-bottom: 1.5em;
 }
@@ -212,12 +222,8 @@ input[type="submit"], input[type="reset"], input[type="button"]
 {
 	margin-bottom: 2.5rem;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom-style: solid;
-	border-bottom-width: var(--border-width);
-	border-bottom-color: var(--color-border);
 }
 
 input.viewSelector
@@ -225,4 +231,3 @@ input.viewSelector
 	font-weight: bold;
 	margin: 0;
 }
-
