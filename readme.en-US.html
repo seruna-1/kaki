@@ -5,9 +5,9 @@
 
 		<title>Hanabi CSS</title>
 
-		<meta charset="UTF-8" lang="en-US" />
+		<meta lang="pt-BR" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="initial-scale=1.0">
 
 		<link rel="stylesheet" href="main.css" />
 
@@ -17,143 +17,254 @@
 
 		<main>
 
-			<p>
+			<p>[kaki] is a minimal CSS and Javascript framework for static HTML pages. I developed it for use in <a href="https://kalamado.codeberg.page/">my personal website</a>.</p>
 
-				<span>Hanabi CSS é um framework simples e minimalista de CSS e javascript para produzir páginas HTML estáticas. Eu desenvolvi para usar no </span>
+			<p>The source code is open and avaiable at <a href="https://codeberg.org/kalamado/kaki">Codeberg</a> and <a href="https://github.com/seruna-1/kaki">GitHub</a>.</p>
 
-				<a href="https://kalamado.codeberg.page/">meu site pessoal</a>
+			<section>
 
-				<span>. Você pode checar a estética do Hanabi CSS lá.</span>
+				<h1>Text</h1>
 
-			</p>
+				<p>Text is placed inside element [p] or inside elements [h] ( [h1], [h2], [h3], [h4], [h5] e [h6] ).</p>
 
-			<p>O código fonte é aberto e está disponível no Codeberg.</p>
+				<p>The element family [h] is used to name the document or a section in it.</p>
 
-			<p>Um exemplo de uma página html simples que usa Hanabi CSS é o arquivo [basic.html].</p>
+				<p>Element [p] and elements [h] have line-break without word-break (no word is separated in two lines). If a paragraph contains a word too big to fit in a line, the paragraph overflows and the user can scroll it.</p>
 
-			<h1>Unidade [vq]</h1>
+				<p>Example of a word too biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiigggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg.</p>
 
-			<p>[vq] é uma unidade de medida, presente no código fonte de hanabi CSS, no arquivo [main.css]</p>
+			</section>
 
-			<div class="scroll">
+			<section>
 
-				<code>--vq: min(100vw, 100vh);</code>
+				<h1>Section</h1>
 
-			</div>
+				<p>Section is a textual part of a document. It contains a title ( [h1], [h2], [h3], [h4], [h5] or [h6] ).</p>
 
-			<p>Para entender a proposta dessa variável, imagine o navegador onde uma página é visualizada:</p>
+				<p>Code example:</p>
 
-			<img src="1.png" />
+				<div>
 
-			<p>Agora, com área de visualização de páigna destacada (nem toda a área do navegador é usada para renderizar a página)</p>
+					<p>&lt;section&gt;</p>
 
-			<img src="2.png" />
+					<div>
 
-			<p>A área de visualiazção de página (em azul) é um retângulo, cujas medidas dos lados estão destacadas</p>
+						<p>&lt;h1&gt; Title 1 &lt;/h1&gt;</p>
 
-			<img src="3.png" />
+						<p>&lt;p&gt; Paragraph. &lt;/p&gt;</p>
 
-			<p>Para terminar, imagine um quadrado. O maior quadrado que cabe dentro desse retângulo azul:</p>
+						<p>&lt;p&gt; A longer paragraph. &lt;/p&gt;</p>
 
-			<img src="4.png" />
+					</div>
 
-			<p>[vq] é igual ao lado desse quadrado vermelho, ou, em outras palavras, ao menor valor dentre [100vw] e [100vh]. Eu uso essa variável para determinar a largura do espaço no qual o conteúdo da página será posicionado. O espaço restante à esquerda e à direita ficam vazios.</p>
+					<p>&lt;/section&gt;</p>
 
-			<h1>Cor de texto</h1>
+				</div>
 
-			<p>Texto pode ter uma dentre 3 cores, definidas pelas seguintes variáveis:</p>
+			</section>
 
-			<div class="scroll">
+			<section>
 
-				<code>--color-text-normal</code>
+				<h1>List</h1>
 
-				<br/>
+				<p>Example:</p>
 
-				<code>--color-text-marked</code>
+				<ul>
 
-				<br/>
+					<li>
 
-				<code>--color-text-shadowed</code>
+						<p>Interpreted</p>
 
-			</div>
+						<ul>
 
-			<p>Existem duas exeções à isso. Âncoras (ou links) e texto dentro de botões tem outras cores.</p>
+							<li><p>Python</p></li>
 
-			<h1>Cor de fundo</h1>
+							<li><p>Ruby</p></li>
 
-			<p>Existem 2 cores de fundo</p>
+						</ul>
 
-			<div class="scroll">
+					</li>
 
-				<code>--color-background-1</code>
+					<li>
+						<p>Compiled</p>
 
-				<br/>
+						<ul>
 
-				<code>--color-background-2</code>
+							<li><p>C</p></li>
 
-			</div>
+							<li><p>C++</p></li>
 
-			<h1>Cor de coisas clicáveis</h1>
+						</ul>
+					</li>
 
-			<p>Um elemento clicável, como um botão, tem a cor definida pela variável</p>
+				</ul>
 
-			<div class="scroll">
+			</section>
 
-				<p>--color-clickable-normal</p>
+			<section>
 
-			</div>
+				<h1>Div</h1>
 
-			<p>Quando o ponteiro do mouse está sobre esse elemento, ele tem a cor de</p>
+				<p>Div is a text block delimited by element [div]. It has border and identation (horizontal margin).</p>
 
-			<div class="scroll">
+				<p>If the div is not inside another div, it has complete border. If it is a nested div, it has only left border.</p>
 
-				<p>--color-clickable-selected</p>
+				<p>There is no line-break in a [div]. If an element [p] inside an [div] overflows, the entire [div] overflows, not only that paragraph.</p>
 
-			</div>
+				<p>Code example of a [div]:</p>
 
-			<h1>Lista</h1>
+				<div>
 
-			<p>Aqui está um exemplo de lista</p>
+					<p>&lt;div&gt;</p>
 
-			<ul>
+					<div>
 
-				<li>
-					<span>Interpreted</span>
+						<p>&lt;p&gt; Parágrafo. &lt;/p&gt;</p>
 
-					<ul>
+						<p>&lt;p&gt; Parágrafo que não tem nenhuma palavra grande, mas muitas palavras. Essa linha não é quebrada. &lt;/p&gt;</p>
 
-						<li>Python</li>
+						<p>&lt;p&gt; Parágrafo muuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuito longo que transborda. &lt;/p&gt;</p>
 
-						<li>Ruby</li>
+					</div>
 
-					</ul>
-				</li>
+					<p>&lt;/div&gt;</p>
 
-				<li>
-					<span>Compiled</span>
+				</div>
 
-					<ul>
+				<p>Rendered example:</p>
 
-						<li>C</li>
+				<div>
 
-						<li>C++</li>
+					<p>Parágrafo.</p>
 
-					</ul>
-				</li>
+					<p>Parágrafo que não tem nenhuma palavra grande, mas muitas palavras. Essa linha não é quebrada.</p>
 
-			</ul>
+					<p>Parágrafo muuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuito longo que transborda.</p>
 
-			<h1>readme.html</h1>
+				</div>
 
-			<p>Pôr um arquivo markdown chamado [README.md] no código fonte de um software é uma prática comúm para apresentar o projeto, descrevê-lo e dar instruções de como usá-lo. O formato markdown é tão eficiente em sentido de sintaxe que se assemelha muito a um arquivo de texto simples, e pode ser lido sem renderização, em um editor de texto.</p>
+				<p>If [div] has class [line-break], there will be line-break of individual paragraphs inside it.</p>
 
-			<p>Mas uma limitação do markdown é que, para incluir um vídeo, por exemplo, é necessário usar a linguagem HTML embutida no arquivo md, e depois converter tudo para HTML, para visualizá-lo.</p>
+				<p>Code example of a [div] with class [line-break]:</p>
 
-			<p>Uma alternativa a isso é escrever a documentação inteira em HTML, embutir o Hanabi CSS no projeto e visualizá-la em um navegador.</p>
+				<div>
 
-			<p>Por exemplo, no diretório de meu projeto, adiciono o subdiretório [hanabi-css] (como um submódulo git ou simplesmente como um subdiretório normal), crio o arquivo [readme.html] para introdução e o subdiretório [doc] para o resto da documentação.</p>
+					<p>&lt;div class="line-break"&gt;</p>
 
-			<p>Essa alternativa tem a desvantagem de requerir um navegador para que os arquivos sejam lidos. Isso não é um problema, na maioria dos casos, mas o markdown continua sendo mais direto nesse sentido.</p>
+					<div>
+
+						<p>&lt;p&gt; Esse é um parágrafo verborrágico com muitas palavras, palavras até demais, mas que não transborda, porque nenhuma palavra é grande demais. &lt;/p&gt;</p>
+
+						<p>&lt;p&gt; Parágrafo com uma palavra muuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuito longa que faz com que ele transborde. &lt;/p&gt;</p>
+
+					</div>
+
+					<p>&lt;/div&gt;</p>
+
+				</div>
+
+				<p>Rendered example:</p>
+
+				<div class="line-break"&">
+
+					<p>Esse é um parágrafo verborrágico com muitas palavras, palavras até demais, mas que não transborda, porque nenhuma palavra é grande demais.</p>
+
+					<p>Parágrafo com uma palavra muuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuito longa que faz com que ele transborde.</p>
+
+				</div>
+
+
+			</section>
+
+			<section>
+
+				<h1>Unidade [vq]</h1>
+
+				<p>[vq] é uma unidade de medida, presente no código fonte de hanabi CSS, no arquivo [main.css]</p>
+
+				<div>
+
+					<p>--vq: min(100vw, 100vh);</p>
+
+				</div>
+
+				<p>Para entender a proposta dessa variável, imagine o navegador onde uma página é visualizada:</p>
+
+				<img src="1.png" />
+
+				<p>Agora, com área de visualização de páigna destacada (nem toda a área do navegador é usada para renderizar a página)</p>
+
+				<img src="2.png" />
+
+				<p>A área de visualiazção de página (em azul) é um retângulo, cujas medidas dos lados estão destacadas</p>
+
+				<img src="3.png" />
+
+				<p>Para terminar, imagine um quadrado. O maior quadrado que cabe dentro desse retângulo azul:</p>
+
+				<img src="4.png" />
+
+				<p>[vq] é igual ao lado desse quadrado vermelho, ou, em outras palavras, ao menor valor dentre [100vw] e [100vh]. Eu uso essa variável para determinar a largura do espaço no qual o conteúdo da página será posicionado. O espaço restante à esquerda e à direita ficam vazios.</p>
+
+			</section>
+
+			<section>
+
+				<h1>Cor de texto</h1>
+
+				<p>Texto pode ter uma dentre 3 cores, definidas pelas seguintes variáveis:</p>
+
+				<div>
+
+					<p>--color-text-normal</p>
+
+					<p>--color-text-marked</p>
+
+					<p>--color-text-shadowed</p>
+
+				</div>
+
+				<p>Existem duas exeções à isso. Âncoras (ou links) e texto dentro de botões tem outras cores.</p>
+
+			</section>
+
+			<section>
+
+				<h1>Cor de fundo</h1>
+
+				<p>Existem 2 cores de fundo</p>
+
+				<div>
+
+					<p>--color-background-1</p>
+
+					<p>--color-background-2</p>
+
+				</div>
+
+			</section>
+
+			<section>
+
+				<h1>Cor de coisas clicáveis</h1>
+
+				<p>Um elemento clicável, como um botão, tem a cor definida pela variável</p>
+
+				<div>
+
+					<p>--color-clickable-normal</p>
+
+				</div>
+
+				<p>Quando o ponteiro do mouse está sobre esse elemento, ele tem a cor de</p>
+
+				<div>
+
+					<p>--color-clickable-selected</p>
+
+				</div>
+
+			</section>
 
 		</main>	
 
