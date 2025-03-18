@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Insides
+  </title>
+  <meta lang="en-US"/>
+  <meta content="initial-scale=1.0" name="viewport"/>
+  <link class="kaki" href="../../../../kaki/main.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main>
+   <p>
+   </p>
+   <p>
+    One class: [Builder], responsible for building the documentation. As input, constructor takes:
+   </p>
+   <ul>
+    <li>
+     <p>
+      [source_root], a path to the directory that acomodates source files.
+     </p>
+    </li>
+    <li>
+     <p>
+      [source-format], that specifies the format of the source files, according to commandline option
+      <code>
+       [--source-format]
+      </code>
+      .
+     </p>
+    </li>
+    <li>
+     <p>
+      [destination_root], a path to the directory that will acomodate generated files.
+     </p>
+    </li>
+    <li>
+     <p>
+      [kaki-relative-path], a relative path that will be used for the topmost generated files to reference the framework.
+     </p>
+    </li>
+   </ul>
+   <p>
+    From each source file, will be generated a destination file at the same relative path from their relative topmost directories, except that the file type extension may change, like from ".md" suffix in the source file to ".html" suffix in generated file.
+   </p>
+   <h1>
+    Method Builder.build
+   </h1>
+   <p>
+    A model HTML file is read and its text is stored.
+   </p>
+   <p>
+    [Path.walk()] is used to select each directory inside source root directory. If there is at least one relevant source file directly inside the current source directory, the relative path to that directory from the source root directory is replicated in destination root directory.
+   </p>
+   <p>
+    The relevant source files are read, built and writed to destination.
+   </p>
+   <p>
+    If a relevant file is an HTML file, its text is passed directly to method [Builder.build_from_html], resulting in a text ready to be writed.
+   </p>
+   <p>
+    If a relevant file is not an HTML file, its text is transformed to HTML format before proceding to pass it to method [Builder.build_from_html].
+   </p>
+   <p>
+    The model HTML text is parsed and BeautifulSoup object is passed to [Builder.build_from_html]. This includes a slightly overhead, as the object is recreated from model text for each time [Builder.build_from_html] is called.
+   </p>
+   <h1>
+    Method Builder.build_from_html
+   </h1>
+   <p>
+    The HTML text received as input is prefixed with
+   </p>
+   <p>
+    <code>
+     &lt;main&gt;
+    </code>
+   </p>
+   <p>
+    And suffixed with
+   </p>
+   <p>
+    <code>
+     &lt;/main&gt;
+    </code>
+   </p>
+   <p>
+    A parsed format of it is created and replaces the element [main] in template. If there is a element [title] inside a element [meta] inside a element [head], it is ripped and replaces the title of the template.
+   </p>
+  </main>
+ </body>
+ <script class="kaki" src="../../../../kaki/main.js">
+ </script>
+</html>

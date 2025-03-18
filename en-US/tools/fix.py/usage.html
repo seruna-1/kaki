@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+  </title>
+  <meta lang="en-US"/>
+  <meta content="initial-scale=1.0" name="viewport"/>
+  <link class="kaki" href="../../../../kaki/main.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main>
+   <h1>
+    build.py
+   </h1>
+   <p>
+    Script that takes a directory as the source of a documentation and generates a directory with HTML files which use [kaki] framework.
+   </p>
+   <h1>
+    Command-line options
+   </h1>
+   <p>
+    <code>
+     --source=
+    </code>
+    is required, specifies a source directory.
+   </p>
+   <p>
+    <code>
+     --format=
+    </code>
+    is required, specifies the format of the files in source directory. Can be
+    <code>
+     [markdown]
+    </code>
+    or
+    <code>
+     [html]
+    </code>
+    .
+   </p>
+   <p>
+    <code>
+     --destination=
+    </code>
+    is required, specifies a destination directory. Built files will be put under this location.
+   </p>
+   <p>
+    <code>
+     --kaki=
+    </code>
+    is an optional relative path to a directory which will be used by the HTML files generated to acess the framework files.
+   </p>
+   <p>
+    If not present, files generated expect [kaki] to be in the destination directory.
+   </p>
+   <p>
+    When building the documentation to put it in a orphan branch, in order to add this branch as a submodule of a repository that is a website, like the repository of [GitHub Pages], this option should be
+    <code>
+     [../kaki]
+    </code>
+    , so that the directory [kaki] will be expected to be 1 level up from the submodule directory.
+   </p>
+  </main>
+ </body>
+ <script class="kaki" src="../../../../kaki/main.js">
+ </script>
+</html>
